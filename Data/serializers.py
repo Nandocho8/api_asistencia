@@ -38,7 +38,7 @@ class Carrera_Serializers(serializers.ModelSerializer):
 class Asignatura_Serializers(serializers.ModelSerializer):
     class Meta:
         model = Asignatura
-        exclude = ('id_asignatura',)
+        fields = '__all__'
 
     def to_representation(self, instance):
         return {
@@ -68,10 +68,10 @@ class Seccion_Serializers(serializers.ModelSerializer):
 class Matricula_Serializers(serializers.ModelSerializer):
     class Meta:
         model = Matricula
-        exclude = ('id',)
+        fields = '__all__'
 
 
 class Asistencia_Serializers(serializers.ModelSerializer):
     class Meta:
         model = Asistencia
-        exclude = ('id_clase',)
+        fields = '__all__'
