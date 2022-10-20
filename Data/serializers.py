@@ -32,7 +32,7 @@ class User_Serializers(serializers.ModelSerializer):
 class Carrera_Serializers(serializers.ModelSerializer):
     class Meta:
         model = Carrera
-        exclude = ('id_carrera',)
+        fields = '__all__'
 
 
 class Asignatura_Serializers(serializers.ModelSerializer):
