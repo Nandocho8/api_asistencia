@@ -23,7 +23,7 @@ class User(AbstractUser):
 
 
 class Carrera(models.Model):
-    id_carrera = models.IntegerField('id_carrera', primary_key=True)
+    id_carrera = models.AutoField('id_carrera', primary_key=True)
     nombre_carrera = models.CharField(
         'nombre_carrera', max_length=50, null=False)
     escuela = models.CharField(
@@ -34,7 +34,7 @@ class Carrera(models.Model):
 
 
 class Asignatura(models.Model):
-    id_asignatura = models.IntegerField('id', primary_key=True)
+    id_asignatura = models.AutoField('id', primary_key=True)
     code_asignatura = models.CharField('code_asig', max_length=7, null=False)
     nombre_asignatura = models.CharField(
         'nombre_asig', max_length=50, null=False)
@@ -48,7 +48,7 @@ class Asignatura(models.Model):
 
 
 class Seccion(models.Model):
-    id_seccion = models.IntegerField('id', primary_key=True)
+    id_seccion = models.AutoField('id', primary_key=True)
     nom_seccion = models.CharField('id_secc', max_length=4)
     asignatura = models.ForeignKey(
         Asignatura, on_delete=models.CASCADE, related_name='Secciones_asignatura')
@@ -68,7 +68,7 @@ class Matricula(models.Model):
 
 
 class Asistencia(models.Model):
-    id_clase = models.IntegerField('id', primary_key=True)
+    id_clase = models.AutoField('id', primary_key=True)
     fecha_clase = models.DateField('fecha_clase', auto_now_add=True)
     id_seccion = models.ForeignKey(
         Seccion, on_delete=models.CASCADE, related_name='asistentes_secion')
