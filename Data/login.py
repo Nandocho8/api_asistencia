@@ -26,6 +26,12 @@ def login(request):
         return Response('Password incorrecta')
 
     token, created = Token.objects.get_or_create(user=user)
+    if user.tipo == "P":
+        id_name = "id_profesor"
+    else:
+        id_name = "id_alumno"
     return Response({"token": token.key,
-                    "id": user.id,
+                    id_name: user.id,
+                     "nombre": user.first_name,
+                     "apellido": user.last_name,
                      "tipo": user.tipo})
