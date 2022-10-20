@@ -26,7 +26,8 @@ class Carrera(models.Model):
     id_carrera = models.IntegerField('id_carrera', primary_key=True)
     nombre_carrera = models.CharField(
         'nombre_carrera', max_length=50, null=False)
-    escula = models.CharField('escuela', max_length=50, null=False)
+    escuela = models.CharField(
+        'escuela', max_length=50, null=False, default='Informatica')
 
     def __str__(self):
         return self.nombre_carrera.upper()
