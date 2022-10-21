@@ -27,9 +27,9 @@ def login(request):
 
     token, created = Token.objects.get_or_create(user=user)
     if user.tipo == "P":
-        id_name = "id_profesor"
+        id_name = "idProfesor"
     else:
-        id_name = "id_alumno"
+        id_name = "idAlumno"
     return Response({"token": token.key,
                     id_name: user.id,
                      "nombre": user.first_name,

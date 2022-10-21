@@ -13,8 +13,8 @@ class User_Serializers(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create(
             email=validated_data['email'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
+            firstName=validated_data['first_name'],
+            lastName=validated_data['last_name'],
             tipo=validated_data['tipo'],
         )
         user.set_password(validated_data['password'])
@@ -44,10 +44,10 @@ class Asignatura_Serializers(serializers.ModelSerializer):
         return {
             'code': instance.code_asignatura,
             'nombre': instance.nombre_asignatura,
-            'id_carrera': instance.id_carrera.id_carrera,
-            'nombre_carrera': instance.id_carrera.nombre_carrera,
-            'id_profesor': instance.profesores.id,
-            'nombre_profesor': f'{instance.profesores.first_name} {instance.profesores.last_name}'
+            'idCarrera': instance.id_carrera.id_carrera,
+            'nombreCarrera': instance.id_carrera.nombre_carrera,
+            'idProfesor': instance.profesores.id,
+            'nombreProfesor': f'{instance.profesores.first_name} {instance.profesores.last_name}'
         }
 
 
@@ -58,12 +58,12 @@ class Seccion_Serializers(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         return {
-            'id seccion': instance.id_seccion,
-            'nombre seccion': instance.nom_seccion,
-            'codigo asignatura': instance.asignatura.code_asignatura,
-            'nombre asignatura': instance.asignatura.nombre_asignatura,
-            'id_profesor': instance.asignatura.profesores.id,
-            'nombre profesor': f'{instance.asignatura.profesores.first_name} {instance.asignatura.profesores.last_name}',
+            'idSeccion': instance.id_seccion,
+            'nombreSeccion': instance.nom_seccion,
+            'codigoAsignatura': instance.asignatura.code_asignatura,
+            'nombreAsignatura': instance.asignatura.nombre_asignatura,
+            'idProfesor': instance.asignatura.profesores.id,
+            'nombreProfesor': f'{instance.asignatura.profesores.first_name} {instance.asignatura.profesores.last_name}',
 
         }
 
@@ -75,16 +75,16 @@ class Matricula_Serializers(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         return {
-            'id_matricula': instance.id,
-            'id_seccion': instance.seccion.id_seccion,
-            'codigo seccion': instance.seccion.nom_seccion,
-            'codigo asignatura': instance.seccion.asignatura.code_asignatura,
-            'nombre asignatura': instance.seccion.asignatura.nombre_asignatura,
-            'id profesor': instance.seccion.asignatura.profesores.id,
-            'nombre profesor': f'{instance.seccion.asignatura.profesores.first_name} {instance.seccion.asignatura.profesores.last_name}',
-            'id_alumno': instance.alumno.id,
-            'nombre alumno': instance.alumno.first_name,
-            'apellido_alumno': instance.alumno.last_name,
+            'idMatricula': instance.id,
+            'idSeccion': instance.seccion.id_seccion,
+            'codigoSeccion': instance.seccion.nom_seccion,
+            'codigoAsignatura': instance.seccion.asignatura.code_asignatura,
+            'nombreAsignatura': instance.seccion.asignatura.nombre_asignatura,
+            'idProfesor': instance.seccion.asignatura.profesores.id,
+            'nombreProfesor': f'{instance.seccion.asignatura.profesores.first_name} {instance.seccion.asignatura.profesores.last_name}',
+            'idAlumno': instance.alumno.id,
+            'nombreAlumno': instance.alumno.first_name,
+            'apellidoAlumno': instance.alumno.last_name,
         }
 
 
@@ -95,16 +95,16 @@ class Asistencia_Serializers(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         return {
-            'id_asistencia': instance.id_clase,
-            'esta_presente': instance.esta_presente,
-            'fecha_clase': instance.fecha_clase,
-            'id_seccion': instance.id_seccion.id_seccion,
-            'codigo seccion': instance.id_seccion.nom_seccion,
-            'codigo asignatura': instance.id_seccion.asignatura.code_asignatura,
-            'nombre asignatura': instance.id_seccion.asignatura.nombre_asignatura,
-            'id profesor': instance.id_seccion.asignatura.profesores.id,
-            'nombre profesor': f'{instance.id_seccion.asignatura.profesores.first_name} {instance.id_seccion.asignatura.profesores.last_name}',
-            'id_alumno': instance.id_alumno.id,
-            'nombre alumno': instance.id_alumno.first_name,
-            'apellido_alumno': instance.id_alumno.last_name,
+            'idAsistencia': instance.id_clase,
+            'estaPresente': instance.esta_presente,
+            'fechaClase': instance.fecha_clase,
+            'idSeccion': instance.id_seccion.id_seccion,
+            'codigoSeccion': instance.id_seccion.nom_seccion,
+            'codigoAsignatura': instance.id_seccion.asignatura.code_asignatura,
+            'nombreAsignatura': instance.id_seccion.asignatura.nombre_asignatura,
+            'idProfesor': instance.id_seccion.asignatura.profesores.id,
+            'nombreProfesor': f'{instance.id_seccion.asignatura.profesores.first_name} {instance.id_seccion.asignatura.profesores.last_name}',
+            'idAlumno': instance.id_alumno.id,
+            'nombreAlumno': instance.id_alumno.first_name,
+            'apellidoAlumno': instance.id_alumno.last_name,
         }
