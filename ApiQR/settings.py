@@ -162,4 +162,4 @@ REST_FRAMEWORK = {
     # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
-CORS_ALLOW_All_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
