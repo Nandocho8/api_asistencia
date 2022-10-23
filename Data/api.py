@@ -18,7 +18,7 @@ class AsistenciaViewSet(viewsets.ModelViewSet):
     queryset = Asistencia.objects.all()
     permission_classes = [permissions.AllowAny]
     serializer_class = Asistencia_Serializers
-    filterset_fields = ['id_seccion']
+    filterset_fields = ['id_seccion__id_seccion']
 
 
 class ProfesorViewSet(viewsets.ModelViewSet):
